@@ -1,9 +1,9 @@
-var express = require('express');
-var router = express.Router();
-
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
-
-module.exports = router;
+"use strict";
+exports.__esModule = true;
+var express_1 = require("express");
+var index_controller_1 = require("../controllers/index-controller");
+var router = express_1.Router();
+router.get('/', index_controller_1.IndexController.Index);
+router.post('/', index_controller_1.IndexController.Post);
+exports.Index = router;
+//# sourceMappingURL=index.js.map
