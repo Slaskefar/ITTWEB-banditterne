@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/', index_1.Index);
+app.use('/', index_1.StartPage);
 app.use(function (req, res, next) {
     var err = new Error('Not Found');
     next(err);
