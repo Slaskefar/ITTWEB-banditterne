@@ -2,12 +2,14 @@
 import {Router, Request, Response} from 'express';
 import {Exercise} from '../models/exercise';
 import {DataAccess} from '../services/data-acces';
-import {IndexController} from '../controllers/index-controller'
+import {StartPageController} from '../controllers/start-page-controller'
 
 const router = Router();
 
-router.get('/', IndexController.Index);
+var startPageController= new StartPageController();
 
-router.post('/', IndexController.Post);
+router.get('/', startPageController.StartPage);
 
-export const Index: Router = router;
+router.post('/', startPageController.Post);
+
+export const StartPage: Router = router;
