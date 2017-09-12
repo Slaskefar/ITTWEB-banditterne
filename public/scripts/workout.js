@@ -19,4 +19,10 @@ function saveWorkout() {
         }    
     workout.exercises[index-1] = Exercise
     }
+
+    document.getElementById("workoutForm").reset()
+
 }
+
+
+

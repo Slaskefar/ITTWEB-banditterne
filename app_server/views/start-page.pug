@@ -2,7 +2,7 @@
 h1 BAD ASS FITNESS $$$$$$
 
 button(onclick="showTable()") Create workout
-form(method='POST' action='/')
+form(id="workoutForm" method='POST' action='/')
     input(type="text" name="workoutName")
     table(id="exerciseTable" hidden=true)
         tr  
@@ -56,7 +56,23 @@ form(method='POST' action='/')
             td 
                 input(name="r5", type="text")
 
-    button.btn.btn-primary(type='submit') Create
+    button.btn.btn-primary(type="submit") Create
+
+table
+    tr
+        th Name
+        th Description
+        th Sets
+        th Reps
+    each val in allWorkout
+        tr   
+            td= val.name     
+                each exercise in val.exercises 
+                    tr
+                        td= exercise.name
+                        td= exercise.description
+                        td= exercise.sets    
+                        td= exercise.reps
 script(src='/scripts/workout.js')
 
     

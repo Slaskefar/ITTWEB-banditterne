@@ -47,7 +47,7 @@ var DataAccess = (function () {
                 return [2, mongodb_1.MongoClient.connect(this.url).then(function (result) {
                         if (result) {
                             _this.db = result;
-                            console.log("conencted");
+                            console.log("connected");
                             return true;
                         }
                         return false;
@@ -76,6 +76,52 @@ var DataAccess = (function () {
                         collection.insertOne(data);
                         this.closeDbConnection();
                         return [2];
+                }
+            });
+        });
+    };
+    DataAccess.prototype.getOne = function (collectionString, id) {
+        return __awaiter(this, void 0, void 0, function () {
+            var test, myResult, collection, result;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4, this.openDbConnection()];
+                    case 1:
+                        test = _a.sent();
+                        if (test != true) {
+                            return [2];
+                        }
+                        collection = this.db.collection(collectionString);
+                        return [4, collection.findOne({ name: id }).then(function (result1) {
+                                myResult = result1;
+                            })];
+                    case 2:
+                        result = _a.sent();
+                        this.closeDbConnection();
+                        return [2, myResult];
+                }
+            });
+        });
+    };
+    DataAccess.prototype.getAll = function (collectionString) {
+        return __awaiter(this, void 0, void 0, function () {
+            var test, myResult, collection, result;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4, this.openDbConnection()];
+                    case 1:
+                        test = _a.sent();
+                        if (test != true) {
+                            return [2];
+                        }
+                        collection = this.db.collection(collectionString);
+                        return [4, collection.find({}).toArray().then(function (result1) {
+                                myResult = result1;
+                            })];
+                    case 2:
+                        result = _a.sent();
+                        this.closeDbConnection();
+                        return [2, myResult];
                 }
             });
         });
