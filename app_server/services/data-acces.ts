@@ -2,7 +2,8 @@ import { MongoClient, Db } from 'mongodb';
 
 export class DataAccess<T>{
 
-    public url = 'mongodb://127.0.0.1:27017/ShareIt';
+    // public url = 'mongodb://127.0.0.1:27017/ShareIt';
+    public url = process.env.CONNECTION_STRING;
     public db: Db;
     constructor() { }
     private async openDbConnection(): Promise<boolean> {
