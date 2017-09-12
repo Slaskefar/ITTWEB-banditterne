@@ -3,7 +3,7 @@ import { MongoClient, Db } from 'mongodb';
 export class DataAccess<T>{
 
     // public url = 'mongodb://127.0.0.1:27017/ShareIt';
-    public url = 'mongodb://slaskefar:adminadmin1@ds133054.mlab.com:33054/workouts';
+    public url = 'mongodb://norgaard.io:27017/badassFitness'
     public db: Db;
     constructor() { }
     private async openDbConnection(): Promise<boolean> {
