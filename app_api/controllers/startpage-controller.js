@@ -35,8 +35,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-var exercise_1 = require("../../app_api/models/exercise");
-var workout_1 = require("../../app_api/models/workout");
 var data_acces_1 = require("../../app_api/services/data-acces");
 var workouts = new Array();
 var StartPageController = (function () {
@@ -55,7 +53,7 @@ var StartPageController = (function () {
                             })];
                     case 1:
                         _a.sent();
-                        res.render('start-page', { title: 'Badass FITNESS', allWorkout: workouts });
+                        res.json({ allWorkout: workouts });
                         return [2];
                 }
             });
@@ -63,24 +61,13 @@ var StartPageController = (function () {
     };
     StartPageController.prototype.Post = function (req, res, next) {
         return __awaiter(this, void 0, void 0, function () {
-            var workout, index, exercise, dataAccess;
+            var workout, dataAccess;
             return __generator(this, function (_a) {
-                workout = new workout_1.Workout();
-                workout.exercises = Array();
-                workout.name = req.body.workoutName;
-                console.log(req.body);
-                for (index = 1; index < 6; index++) {
-                    exercise = new exercise_1.Exercise();
-                    exercise.name = req.body["n" + index];
-                    exercise.description = req.body["d" + index];
-                    exercise.sets = req.body["s" + index];
-                    exercise.reps = req.body["r" + index];
-                    workout.exercises.push(exercise);
-                }
+                workout = req.body;
                 dataAccess = new data_acces_1.DataAccess();
                 dataAccess.create("Workouts", workout);
                 workouts.push(workout);
-                res.render('start-page', { title: 'Badass FITNESS', allWorkout: workouts });
+                res.json({ allWorkout: workouts });
                 return [2];
             });
         });
@@ -88,4 +75,4 @@ var StartPageController = (function () {
     return StartPageController;
 }());
 exports.StartPageController = StartPageController;
-//# sourceMappingURL=start-page-controller.js.map
+//# sourceMappingURL=startpage-controller.js.map

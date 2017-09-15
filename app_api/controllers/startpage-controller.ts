@@ -21,7 +21,7 @@ export class StartPageController {
 
     public async Post(req, res, next) {
 
-        var workout = req.json;
+        var workout = req.body;
         
         var dataAccess = new DataAccess();
 

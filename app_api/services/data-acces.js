@@ -38,7 +38,7 @@ exports.__esModule = true;
 var mongodb_1 = require("mongodb");
 var DataAccess = (function () {
     function DataAccess() {
-        this.url = 'mongodb://127.0.0.1:27017/ShareIt';
+        this.url = 'mongodb://norgaard.io:27017/badassFitness';
     }
     DataAccess.prototype.openDbConnection = function () {
         return __awaiter(this, void 0, void 0, function () {
