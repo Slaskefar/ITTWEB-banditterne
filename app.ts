@@ -7,6 +7,7 @@ import * as bodyParser from 'body-parser';
 
 import {StartPage} from './app_server/routes/index';
 //import {StartPage} from './app_server/routes/start-page';
+import {StartPageApi} from './app_api/routes/index'
 
 var app = express();
 

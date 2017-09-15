@@ -1,5 +1,5 @@
 import {Router, Request, Response} from 'express';
-import {StartPageController} from '../app_api/controllers/startpage-controller';
+import {StartPageController} from '../controllers/startpage-controller';
 
 const router = Router();
 
