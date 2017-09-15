@@ -1,6 +1,6 @@
-import { Exercise } from '../models/exercise';
-import { Workout } from '../models/workout';
-import { DataAccess } from '../services/data-acces';
+import { Exercise } from '../../app_api/models/exercise';
+import { Workout } from '../../app_api/models/workout';
+import { DataAccess } from '../../app_api/services/data-acces';
 import { Router } from 'express';
 
 var workouts = new Array<Workout>();
